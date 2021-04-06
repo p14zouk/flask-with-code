@@ -67,6 +67,39 @@ body {
 .btn-group button:hover {
   background-color: #3380cc;
 }
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+   margin-left: auto;
+   margin-right: auto
+  
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#loading.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#loading {
+  display: none;
+}
 </style>
 <body>
 <div class="container">
@@ -75,14 +108,23 @@ body {
 
         <div class="header">
             <h1>Upload Completed</h1>
-		<p>Images are saved in Gallery folder.</p>
+			<p>Ready to train the model with the new images.</p>
         </div>
 		<div class="firstcol">
 		<hr>
         <div class="btn-group" style="width:100%">
-		<button style="width:100%" onclick="location.href='http://127.0.0.1:4555/gallery'">Gallery</button>     
-	</div>
+		<button style="width:100%" onclick="myFunction();location.href='http://127.0.0.1:4555/train'" >Train</button>     
+		</div>
         <hr>
-	</div>
+		<div id="loading">
+		<div class="loader"{class-align: center;} >
+		</div>
+		</div>
+		</div>
+		<script>
+		function myFunction(){
+		document.getElementById("loading").style.display = "block";
+		}
+		</script>
 </body>
 </html>

@@ -87,23 +87,24 @@ input[type=submit] {
 		<div class="row">
 
         		<div class="header">
-            			<h1>Home</h1>
-				
+            			{% for row in foldername %}
+			{% for cell in row %}
+			<h1>{{cell}}</h1>
+			<p>Upload the images you want for this Category {{cell}}</p>
+			<hr>
+			{% endfor %}
+		{% endfor %}
         		</div>
-		
-		<div class="firstcol">
-		<hr>
-		<div class="btn-group" style="width:100%">
-			<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/gallery'">Gallery</button>  
-			<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/models'">Models</button> 
-			<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/modelcode2'">Sorting</button> 
-		</div>
-		<hr>
-		</div>
 		<div class="secondcol">
-		<center><p><b>Gallery:</b> Images you want to get sorted.</p>
-		<p><b>Models:</b> Train models, Retrain models and Delete models.</p>
-		<p><b>Sorting:</b> Sorting your images from the Gallery with one of the available models.</p></center>
+		<hr>
+		<form id="upload1-form" action="{{ url_for('upload1') }}" method="POST" enctype="multipart/form-data">
+
+    			<strong>Files:</strong><br>
+    			<input id="file-picker" type="file" name="file" accept="image/*" multiple>
+    			<div id="msg"></div>
+    			<input type="submit" value="Upload!" id="upload-button">
+		</form>
+		<hr>
 		</div>
 
 
