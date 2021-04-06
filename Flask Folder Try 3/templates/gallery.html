@@ -25,7 +25,7 @@ body {
 
 /* Header/logo Title */
 .header {
-  padding: 80px;
+  padding: 40px;
   text-align: center;
   background: #3366cc;
   color: white;
@@ -33,7 +33,7 @@ body {
 
 /* Increase the font size of the heading */
 .header h1 {
-  font-size: 40px;
+  font-size: 60px;
 }
 .firstcol {
   background-color: #3366cc;
@@ -87,20 +87,22 @@ input[type=submit] {
 <body>
 <div class="container">
 
-    <div class="row">
-
-        <div class="header">
-            <h1>Gallery</h1>
-			<p>Images ready for sorting.</p>
-        </div>
-		<div class="firstcol">
+<div class="firstcol">
 		<hr>
         <div class="btn-group" style="width:100%">
-		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555'">Home</button> 
-		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/models'">Models</button>
-		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/modelcode2'">Sorting</button>		
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555'"><b>Grouping Images</b></button> 
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/models'"><b>Models</b></button>
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/modelcode2'"><b>Sorting</b></button>		
 		</div>
         <hr>
+		</div>
+    <div class="firstcol">
+
+        <div class="header">
+            <h1>Images for Sorting</h1>
+			<p>Images ready for sorting.</p>
+        </div>
+		
 		<form id="upload-form" action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
 
     			<strong>Files: </strong><br>
@@ -110,11 +112,13 @@ input[type=submit] {
 		</form>
 		<hr>
 		</div>
+		<div class="secondcol">
+		<p><center>{{i}}</center></p>
         {% for image_name in image_names %}
-        <div class="secondcol">
             <img class="img-responsive" src=" {{url_for('send_image', filename=image_name)}}">
-        </div>
+        
         {% endfor %}
+		</div>
     </div>
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"

@@ -22,7 +22,7 @@ body {
 
 /* Header/logo Title */
 .header {
-  padding: 80px;
+  padding: 40px;
   text-align: center;
   background: #3366cc;
   color: white;
@@ -30,7 +30,7 @@ body {
 
 /* Increase the font size of the heading */
 .header h1 {
-  font-size: 40px;
+  font-size: 60px;
 }
 .firstcol {
   background-color: #3366cc;
@@ -83,18 +83,27 @@ input[type=submit] {
 </style>
 <body>
 	<div class="container">
-
-		<div class="row">
+<div class="firstcol">
+		<hr>
+        <div class="btn-group" style="width:100%">
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555'"><b>Grouping Images</b></button> 
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/gallery'"><b>Images for Sorting</b></button>
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/models'"><b>Models</b></button>
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/modelcode2'"><b>Sorting</b></button>		
+		</div>
+        <hr>
+		</div>
+		<div class="firstcol">
 
         		<div class="header">
-            			{% for row in foldername %}
-			{% for cell in row %}
-			<h1>{{cell}}</h1>
-			<p>Upload the images you want for this Category {{cell}}</p>
-			<hr>
-			{% endfor %}
-		{% endfor %}
+          
+			<h1>{{foldername}}</h1>
+			<p>Upload the images you want for Category {{foldername}}</p>
+			
+		
+	
         		</div>
+				</div>
 		<div class="secondcol">
 		<hr>
 		<form id="upload1-form" action="{{ url_for('upload1') }}" method="POST" enctype="multipart/form-data">

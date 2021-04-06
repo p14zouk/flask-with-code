@@ -4,7 +4,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <meta charset="UTF-8">
-    <title>Models</title>
+    <title>Sorting</title>
 </head>
 <style>
 * {
@@ -20,7 +20,7 @@ body {
 
 /* Header/logo Title */
 .header {
-  padding: 80px;
+  padding: 40px;
   text-align: center;
   background: #3366cc;
   color: white;
@@ -28,7 +28,7 @@ body {
 
 /* Increase the font size of the heading */
 .header h1 {
-  font-size: 40px;
+  font-size: 60px;
 }
 .firstcol {
   background-color: #3366cc;
@@ -116,22 +116,26 @@ a:hover, a:active {
 </style>
 <body>
 <div class="container">
-
-    <div class="row">
+<div class="firstcol">
+		<hr>
+        <div class="btn-group" style="width:100%">
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555'"><b>Grouping Images</b></button> 
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/gallery'"><b>Images for Sorting</b></button>
+		<button style="width:33%" onclick="location.href='http://127.0.0.1:4555/models'"><b>Models</b></button>		
+		</div>
+        <hr>
+		</div>
+    <div class="firstcol">
 	<div class="header">
-	<h1>Models</h1>
+	<h1>Sorting</h1>
 	<p>Choose model to use for sorting.</p>
 	</div>
-	<div class="firstcol">
-	<hr>
-		<div class="btn-group" style="width:100%">
-		<button style="width:100%" onclick="location.href='http://127.0.0.1:4555/'">Home</button> 
-		</div>
-		<hr>
-		</div>
+	</div>
 	<div class="secondcol">
+	<p>All Available Models</p>
+	<hr>
 	<div class="btn-group" style="width:100%">
-	<button style="width:12%" onclick="location.href='http://127.0.0.1:4555/code'">Our Code</button> 
+	<a href="/code" onclick="myFunction()">Our Code</a>
 	</div>
 	<hr>
 		{% for row in mdata %}
